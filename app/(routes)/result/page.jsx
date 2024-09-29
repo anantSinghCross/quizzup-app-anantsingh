@@ -9,16 +9,20 @@ import React, { useContext } from "react";
 const ResultPage = () => {
   const router = useRouter();
   const {result} = useContext(MainContext);
-  console.log(result)
+  console.log(result);
   return (
     <div className="flex h-screen w-full max-w-sm flex-col items-center justify-end bg-violet-300">
       <div className="bg-white pt-10 p-5 rounded-t-3xl w-full">
         <p className=" font-bold text-2xl mb-3 text-center">Your Result</p>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-4">
           <ProgressBar percentage={result.percentage}/>
-          <div className="flex flex-col gap-3">
             <ScoreCard score={result.score} isCorrect={true}/>
             <ScoreCard score={result.totalQuestions - result.score}/>
+          <div className="flex p-4 items-center border gap-2 rounded-lg">
+            <p className="text-xl">⏱️</p>
+            <p>
+              <span className="font-bold text-lg">{result.totalSecondsTaken} seconds </span>spent in total
+            </p>
           </div>
         </div>
       </div>

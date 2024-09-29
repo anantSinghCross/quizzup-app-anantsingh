@@ -8,10 +8,10 @@ export const getQuestion = async (questionNumber) => {
   return data;
 };
 
-export const saveAndGetNextQuestion = async (no, answers) => {
+export const saveAndGetNextQuestion = async ({no, answers, seconds}) => {
   const res = await fetch(`http://localhost:3000/api/question?no=${no}`, {
     method: `POST`,
-    body: JSON.stringify({ no, answers }),
+    body: JSON.stringify({ no, answers, seconds }),
   });
   const resData = await res.json();
   if (resData.success) {

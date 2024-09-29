@@ -7,14 +7,12 @@ const withContext = (WrappedComponent) => {
     
     const [question, setQuestion] = useState(null);
     const [result, setResult] = useState(null);
-
-    const handleOnClick = async () => {
-      
-    }
+    const [totalQuestions, setTotalQuestions] = useState(null);
 
     return (
       <MainContext.Provider value={{
-        handleOnClick,
+        totalQuestions, 
+        setTotalQuestions,
         question,
         result,
         setResult,

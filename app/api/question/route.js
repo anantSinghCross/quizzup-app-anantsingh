@@ -43,6 +43,7 @@ const correctAnswers = {
   '4': [3],
 }
 let userAnswers = {};
+let totalSecondsTaken = 0;
 
 export async function GET(req) {
   const quesNumber = req.nextUrl.searchParams.get("no");
@@ -57,16 +58,18 @@ export async function GET(req) {
     return NextResponse.json({
       score,
       totalQuestions: allQuestions.length,
-      percentage: Math.ceil((score/allQuestions.length)*100)
+      percentage: Math.ceil((score/allQuestions.length)*100),
+      totalSecondsTaken
     })
   }
-  return NextResponse.json(allQuestions[quesNumber]);
+  return NextResponse.json({question: allQuestions[quesNumber], totalQuestions: allQuestions.length});
 }
 
 export async function POST(req) {
   const body = await req.json();
-  const { no, answers } = body;
+  const { no, answers, seconds } = body;
   userAnswers[no] = answers;
+  totalSecondsTaken += seconds;
   console.log(userAnswers);
   return NextResponse.json({success: true, no});
 }

@@ -8,13 +8,14 @@ import { useActionState } from "react-dom";
 
 const StartPage = () => {
   const router = useRouter()
-  const { setQuestion } = useContext(MainContext);
+  const { setQuestion, setTotalQuestions } = useContext(MainContext);
   const [loading, setLoading] = useState(false);
 
   const handleStartQuiz = async () => {
     setLoading(true);
-    const question = await getQuestion(0); // Quiz will always start from 0th question
+    const {question, totalQuestions} = await getQuestion(0); // Quiz will always start from 0th question
     setQuestion(question);
+    setTotalQuestions(totalQuestions);
     router.replace('/quiz');
   }
 
