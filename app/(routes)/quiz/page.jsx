@@ -70,6 +70,7 @@ const QuizPage = () => {
           {question.image && (
             <Image
               src={question.image}
+              alt={question.image}
               width={500}
               height={500}
               style={{ width: "60%", height: "auto" }}

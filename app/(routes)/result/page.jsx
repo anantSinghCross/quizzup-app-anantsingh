@@ -11,7 +11,6 @@ const ResultPage = () => {
   noStore();
   const router = useRouter();
   const {result} = useContext(MainContext);
-  console.log(result);
   return (
     <div className="flex h-screen w-full max-w-sm flex-col items-center justify-end bg-violet-300">
       <div className="bg-white pt-10 p-5 rounded-t-3xl w-full">
