@@ -3,6 +3,7 @@ import Button from "@/app/components/Button";
 import Checkbox from "@/app/components/Checkbox";
 import { MainContext } from "@/app/context/context";
 import { saveAndGetNextQuestion } from "@/app/server-actions";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 
@@ -50,6 +51,16 @@ const QuizPage = () => {
     <div className="flex h-screen w-full max-w-sm flex-col items-center justify-end bg-violet-300">
       <div className="bg-white pt-10 p-5 rounded-t-3xl w-full">
         <p className=" font-bold text-lg mb-3">{question.question}</p>
+        <div className="flex justify-center">
+          {question.image && (
+            <Image
+              src={question.image}
+              width={500}
+              height={500}
+              style={{ width: "60%", height: "auto" }}
+            />
+          )}
+        </div>
         <div className="flex flex-col gap-2 py-2">
           {question?.choices?.map((item, index) => (
             <Checkbox
