@@ -1,5 +1,7 @@
 ## Quizzup App (Next.js)
-Feel free to visit the web app here [Quizzup App]()
+Feel free to visit the web app here [Quizzup App](https://quizzup-app-anantsingh.onrender.com).
+
+**Please note that the site is deployed on a free tier. You might have to wait for 40-50 seconds if the server needs to spin up again.**
 
 ### Running the code
 1. Clone the repo / Download the code
