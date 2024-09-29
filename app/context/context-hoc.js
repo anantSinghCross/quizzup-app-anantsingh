@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import { MainContext } from './context'
 
+// An HOC, whwich wraps the root layout in Context provider
+
 const withContext = (WrappedComponent) => {
   return function Wrapper (props) {
     

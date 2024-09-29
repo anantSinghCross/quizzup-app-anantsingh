@@ -1,7 +1,5 @@
 "use server";
 
-import { wait } from "./utils";
-
 export const getQuestion = async (questionNumber) => {
   const res = await fetch(`http://localhost:3000/api/question?no=${questionNumber}`);
   const data = await res.json();

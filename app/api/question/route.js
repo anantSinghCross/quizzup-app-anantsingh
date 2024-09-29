@@ -45,6 +45,7 @@ const correctAnswers = {
 let userAnswers = {};
 let totalSecondsTaken = 0;
 
+// Handlers
 export async function GET(req) {
   const quesNumber = req.nextUrl.searchParams.get("no");
   // this means that there is no next question and the result should be shown
@@ -70,6 +71,5 @@ export async function POST(req) {
   const { no, answers, seconds } = body;
   userAnswers[no] = answers;
   totalSecondsTaken += seconds;
-  console.log(userAnswers);
   return NextResponse.json({success: true, no});
 }

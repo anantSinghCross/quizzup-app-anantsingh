@@ -5,8 +5,10 @@ import { getQuestion } from "@/app/server-actions";
 import { redirect, useRouter } from "next/navigation";
 import React, { useContext, useState } from "react";
 import { useActionState } from "react-dom";
+import { unstable_noStore as noStore } from 'next/cache';
 
 const StartPage = () => {
+  noStore();
   const router = useRouter()
   const { setQuestion, setTotalQuestions } = useContext(MainContext);
   const [loading, setLoading] = useState(false);

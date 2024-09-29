@@ -5,8 +5,10 @@ import ScoreCard from "@/app/components/ScoreCard";
 import { MainContext } from "@/app/context/context";
 import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
+import { unstable_noStore as noStore } from 'next/cache';
 
 const ResultPage = () => {
+  noStore();
   const router = useRouter();
   const {result} = useContext(MainContext);
   console.log(result);

@@ -6,18 +6,19 @@ import { saveAndGetNextQuestion } from "@/app/server-actions";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
+import { unstable_noStore as noStore } from 'next/cache';
 
 const QuizPage = () => {
+  noStore();
   const router = useRouter();
   const { question, setQuestion, setResult, totalQuestions } = useContext(MainContext);
   const [answers, setAnswers] = useState([]); /* [1, 2, 3] */
   const [loading, setLoading] = useState(false);
   const [seconds, setSeconds] = useState(0);
-  console.log(question);
 
   // Clear the answers when the question changes
   // set the timer and reset on question change
-  useEffect(() => {
+  useEffect(() => { 
     setAnswers([]);
     const intervalId = setInterval(() => {
       setSeconds(p => p+1)
@@ -51,7 +52,6 @@ const QuizPage = () => {
         updatedAnswers = [...p];
         updatedAnswers.push(answerIndex);
       }
-      console.log(updatedAnswers);
       return updatedAnswers;
     });
   };
